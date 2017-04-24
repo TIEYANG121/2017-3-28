@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>	
+		.numberlist li{
+			float: left;
+			list-style:none;
+			border:1px solid red;
+			width:30px;
+			height:30px;
+			text-align: center;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/1.jpg" alt="">
+	<ul class="numberlist">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+
+	<script>
+		var srclist = [
+			"images/1.jpg",
+			"images/2.jpg",
+			"images/3.jpg",
+			"images/4.jpg",
+			"images/5.jpg"
+		];
+
+		var oImg = document.querySelector('img');
+		var ind = 1;
+		function changePic(){
+			console.log(ind);
+			oImg.src = srclist[ind];
+			ind++;
+			ind = ind === 5 ? 0 : ind;
+		}
+
+		setInterval(changePic,2000);
+	</script>
+</body>
+</html>

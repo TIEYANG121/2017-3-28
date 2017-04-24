@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.stop{
+			width:200px;
+			height:200px;
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+	<h1>0</h1>
+	<div class="stop">停止</div>
+
+	<script>
+		var h1 = document.querySelector('h1');
+		var n = 0;
+
+		function count(){
+			n++;
+			h1.innerHTML = n;
+		}
+
+		var t = setInterval(count,500);
+
+		document.querySelector('.stop').onmouseenter = function(){
+			clearInterval(t);
+			t = setInterval(count,500);
+		}
+
+		document.querySelector('.stop').onmouseleave = function(){
+			clearInterval(t);
+			t = setInterval(count,500);
+		}
+
+		document.querySelector('.stop').onmousemove = function(){
+
+		}
+
+
+	</script>
+</body>
+</html>

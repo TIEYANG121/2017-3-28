@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>	
+		.numberlist li{
+			float: left;
+			list-style:none;
+			border:1px solid red;
+			width:30px;
+			height:30px;
+			text-align: center;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/1.jpg" alt="">
+	<ul class="numberlist">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+
+	<script>
+		var oImg = document.querySelector('img');
+		var oLi = document.querySelectorAll('.numberlist li');
+		var oUl = document.querySelector('.numberlist');
+		var ind = 1;
+		var srclist = [
+			"images/1.jpg",
+			"images/2.jpg",
+			"images/3.jpg",
+			"images/4.jpg",
+			"images/5.jpg"
+		];
+
+		for(var i = 0;i<oLi.length;i++){
+			oLi[i].index = i;
+			oLi[i].onclick = function(){
+				oImg.src = srclist[this.index];
+				ind = this.index;
+			}
+		}
+
+		function changePic(){
+			console.log(ind);
+			oImg.src = srclist[ind];
+			ind++;
+			ind = ind === 5 ? 0 : ind;
+		}
+
+		var t = setInterval(changePic,2000);
+
+		oUl.onmouseenter = function(){
+			clearInterval(t);
+		}
+		oUl.onmouseleave = function(){
+			t = setInterval(changePic,2000);
+		}
+	</script>
+</body>
+</html>
+</body>
+</html>

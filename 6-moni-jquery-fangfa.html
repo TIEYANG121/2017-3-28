@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.abc{
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<h1 class="test">hello world</h1>
+	<button>添加class名</button>
+	<script>
+		var h = document.querySelector('h1');
+	
+		function addClass(dom,str){
+			var newClassname = "";
+			if(dom.className){
+				var cname = dom.className;
+				newClassname = cname + " " + str;
+			}else{
+				newClassname = str;
+			}
+			dom.className = newClassname;
+		}
+
+		document.querySelector('button').onclick = function(){
+			addClass(h,"abc");
+		}
+	</script>
+</body>
+</html>

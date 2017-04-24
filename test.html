@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>hello</h1>
+	<script>
+		function addClass(dom,str){
+			var newcname = "";
+			if(dom.className){
+				var cname = dom.className;
+				newcname = cname + " " + str;
+			}else{
+				newcname = str;
+			}
+			dom.className = newcname;
+		}
+
+		addClass(document.querySelector('h1'),'abc')
+		addClass(document.querySelector('h1'),'n')
+		addClass(document.querySelector('h1'),'test')
+
+		function removeClass(dom,str){
+			var arr = dom.className.split(" ");
+			for(var i = 0;i<arr.length;i++){
+				if(arr[i] === str){
+					arr.splice(i,1);
+				}
+			}
+			var newcname = arr.join(" ");
+			dom.className = newcname;
+		}
+
+		removeClass(document.querySelector('h1'),'n');
+	</script>
+</body>
+</html>
